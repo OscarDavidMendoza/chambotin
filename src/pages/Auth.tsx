@@ -130,7 +130,7 @@ const Auth = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Correo Electronico"
                       value={email}
                       onChange={(e: { target: { value: any; }; }) => setEmail(e.target.value)}
                       required
@@ -141,7 +141,7 @@ const Auth = () => {
                     <Input
                       id="password"
                       type="password"
-                      placeholder="Enter your password"
+                      placeholder="Contraseña"
                       value={password}
                       onChange={(e: { target: { value: any; }; }) => setPassword(e.target.value)}
                       required
