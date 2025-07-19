@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -103,51 +104,51 @@ const Auth = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Smartphone className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold text-foreground">EmprendeApp</h1>
+            <h1 className="text-2xl font-bold text-foreground">Chambotin</h1>
           </div>
           <p className="text-muted-foreground">Tu mentor digital de negocios</p>
         </div>
 
         <Tabs defaultValue="signin" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="signin">Sign In</TabsTrigger>
-            <TabsTrigger value="signup">Sign Up</TabsTrigger>
+            <TabsTrigger value="signin">Iniciar Sesión</TabsTrigger>
+            <TabsTrigger value="signup">Crear Cuenta</TabsTrigger>
           </TabsList>
 
           <TabsContent value="signin">
             <Card>
               <CardHeader>
-                <CardTitle>Welcome back</CardTitle>
+                <CardTitle>Bienvenido</CardTitle>
                 <CardDescription>
-                  Sign in to continue your entrepreneurial journey
+                  Inicia sesión para continuar tu camino emprendedor
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignIn} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">Correo</Label>
                     <Input
                       id="email"
                       type="email"
                       placeholder="Enter your email"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setEmail(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password">Contraseña</Label>
                     <Input
                       id="password"
                       type="password"
                       placeholder="Enter your password"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setPassword(e.target.value)}
                       required
                     />
                   </div>
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Signing in..." : "Sign In"}
+                    {loading ? "Iniciando sesión..." : "Iniciar Sesión"}
                   </Button>
                 </form>
               </CardContent>
@@ -157,90 +158,90 @@ const Auth = () => {
           <TabsContent value="signup">
             <Card>
               <CardHeader>
-                <CardTitle>Create your account</CardTitle>
+                <CardTitle>Crear Cuenta</CardTitle>
                 <CardDescription>
-                  Start your digital business transformation today
+                  Comienza hoy tu transformación digital empresarial
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSignUp} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email">Correo</Label>
                     <Input
                       id="signup-email"
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="CORREO ELECTRONICO"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setEmail(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="signup-password">Password</Label>
+                    <Label htmlFor="signup-password">Contraseña</Label>
                     <Input
                       id="signup-password"
                       type="password"
-                      placeholder="Create a password"
+                      placeholder="CONTRASEÑA"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setPassword(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="display-name">
                       <User className="inline h-4 w-4 mr-1" />
-                      Your Name
+                      Nombre
                     </Label>
                     <Input
                       id="display-name"
                       type="text"
-                      placeholder="Enter your full name"
+                      placeholder="nombre completo"
                       value={displayName}
-                      onChange={(e) => setDisplayName(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setDisplayName(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="business-name">
                       <Building className="inline h-4 w-4 mr-1" />
-                      Business Name
+                      Nombre de Negocio
                     </Label>
                     <Input
                       id="business-name"
                       type="text"
-                      placeholder="Enter your business name"
+                      placeholder="Ingresa el nombre del negocio"
                       value={businessName}
-                      onChange={(e) => setBusinessName(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setBusinessName(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="business-type">Business Type</Label>
+                    <Label htmlFor="business-type">Tipo de Negocio</Label>
                     <Input
                       id="business-type"
                       type="text"
-                      placeholder="e.g., Food, Clothing, Services"
+                      placeholder="e.g., Tienda, Comida, Tlapaleria"
                       value={businessType}
-                      onChange={(e) => setBusinessType(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setBusinessType(e.target.value)}
                       required
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone-number">
                       <Smartphone className="inline h-4 w-4 mr-1" />
-                      WhatsApp Number
+                      Numero de Telefono
                     </Label>
                     <Input
                       id="phone-number"
                       type="tel"
                       placeholder="+1234567890"
                       value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      onChange={(e: { target: { value: any; }; }) => setPhoneNumber(e.target.value)}
                       required
                     />
                   </div>
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Creating account..." : "Create Account"}
+                    {loading ? "Creando Cuenta..." : "Crear Cuenta"}
                   </Button>
                 </form>
               </CardContent>
