@@ -1,4 +1,4 @@
 project_id = "ryjjlfiqvhaggyszmejx"
 
 [functions.whatsapp-mentor]
-verify_jwt = false
+verify_jwt = false`
